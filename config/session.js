@@ -23,8 +23,8 @@ module.exports.session = {
   ***************************************************************************/
   secret: 'c3256c1d4d228744e4f2e1f32f94a184',
 
-  adapter: 'sails-mongo',
-  url: process.env.MONGOLAB_URI
+  // adapter: 'sails-mongo',
+  // url: process.env.MONGOLAB_URI
 
   /***************************************************************************
   *                                                                          *
