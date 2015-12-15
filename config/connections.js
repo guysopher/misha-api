@@ -32,7 +32,7 @@ module.exports.connections = {
     adapter: 'sails-disk'
   },
 
-  production: {
+  'heroku-mongolab': {
     adapter: 'sails-mongo',
     url: process.env.MONGOLAB_URI
   },
