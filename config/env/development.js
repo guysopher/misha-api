@@ -18,7 +18,7 @@ module.exports = {
    ***************************************************************************/
 
   models: {
-    connection: 'heroku-mongolab'
+    connection: 'localDiskDb'
   }
 
 };
