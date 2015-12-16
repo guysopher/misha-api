@@ -18,27 +18,42 @@ module.exports = {
         var user = p.waiting_for;
         if (!user || !user.last_seen || !user.hasOwnProperty('last_seen')) continue;
         lastSeen = (new Date(Number(user.last_seen))).getTime();
-        if ((now - lastSeen) < (1 * 60 * 1000)) {
+        if ((now - lastSeen) < (10 * 60 * 1000)) {
           //the user is active!! Hooray!!!
           //return the message
+          Pending.destroy({id: p.id}, function(res) {
+            console.warn('Deleted:', res);
+          });
+
           res.send({
             notify: true,
             user: user.name,
-            message: user.name + ' ' + p.message_id
+            message: p.message
+            //pending: p.id
           });
+
+          return;
 
           //todo- delete the pending record
         } else {
           //the user is not there
-          res.send({
-            notify: true,
-            user: user.name,
-            message: user.name + ' is still away...',
-            timeAgo: ((now - lastSeen) / 1000 / 60)
-          });
+          //res.send({
+          //  notify: true,
+          //  user: user.name,
+          //  message: 'is still away...',
+          //  //pending: p.id,
+          //  //timeAgo: ((now - lastSeen) / 1000 / 60)
+          //});
+          //break;
         }
       }
 
+      res.send({
+        notify: true,
+        user: 'misha',
+        message: 'no messages'
+        //pending: p.id
+      });
 
     });
 
