@@ -22,6 +22,9 @@
 // no matter where we actually lift from.
 process.chdir(__dirname);
 
+//Todo: remove comment bellow
+//new comment
+
 // Ensure a "sails" can be located:
 (function() {
   var sails;
