@@ -28,6 +28,8 @@ module.exports = {
           res.send('nope: ' + ((now - lastSeen) / 1000 / 60));
         }
       }
+
+      res.send('no pending stuff');
     });
 
   }
