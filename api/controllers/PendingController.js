@@ -16,20 +16,30 @@ module.exports = {
       var lastSeen;
       for (var p, i=0; p = pending[i]; i++) {
         var user = p.waiting_for;
+        if (!user || !user.last_seen || !user.hasOwnProperty('last_seen')) continue;
         lastSeen = (new Date(Number(user.last_seen))).getTime();
-        if ((now - lastSeen) < (15 * 60 * 1000)) {
+        if ((now - lastSeen) < (1 * 60 * 1000)) {
           //the user is active!! Hooray!!!
           //return the message
-          res.send('Got a message:' + p.message_id);
+          res.send({
+            notify: true,
+            user: user.name,
+            message: user.name + ' ' + p.message_id
+          });
 
           //todo- delete the pending record
         } else {
           //the user is not there
-          res.send('nope: ' + ((now - lastSeen) / 1000 / 60));
+          res.send({
+            notify: true,
+            user: user.name,
+            message: user.name + ' is still away...',
+            timeAgo: ((now - lastSeen) / 1000 / 60)
+          });
         }
       }
 
-      res.send('no pending stuff');
+
     });
 
   }
