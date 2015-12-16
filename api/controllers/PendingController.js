@@ -49,7 +49,7 @@ module.exports = {
       }
 
       res.send({
-        notify: true,
+        notify: false,
         user: 'misha',
         message: 'no messages'
         //pending: p.id
