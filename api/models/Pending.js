@@ -9,7 +9,9 @@ module.exports = {
 
   attributes: {
     user_id: String,
-    waiting_for: String,
+    waiting_for: {
+      model: 'User'
+    },
     message_id: String
   }
 };

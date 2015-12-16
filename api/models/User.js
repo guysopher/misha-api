@@ -8,7 +8,9 @@
 module.exports = {
 
   attributes: {
-
+    user_id: String,
+    email: String,
+    last_seen: Date,
   }
 };
 
