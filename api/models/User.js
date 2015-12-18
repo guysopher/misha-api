@@ -11,6 +11,7 @@ module.exports = {
     user_id: String,
     email: String,
     last_seen: Date,
+    busy: Boolean
   }
 };
 
