@@ -17,7 +17,7 @@ module.exports = {
       for (var p, i=0; p = pending[i]; i++) {
         var user = p.waiting_for;
         if (!user || !user.last_seen || !user.hasOwnProperty('last_seen')) continue;
-        if (!user.status || user.status == 'busy') return false;
+        if (!user.status || user.status == 'busy') continue;
         lastSeen = (new Date(Number(user.last_seen))).getTime();
         if ((now - lastSeen) < (2 * 60 * 1000)) {
           //the user is active!! Hooray!!!
