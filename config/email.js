@@ -7,6 +7,6 @@ module.exports.email = {
   },
   from: 'misha@wix.com',
   testMode: false,
-  alwaysSendTo: 'guyso@wix.com'
+  alwaysSendTo: 'miki@wix.com'
 
 };
