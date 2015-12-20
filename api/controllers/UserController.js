@@ -16,6 +16,8 @@ module.exports = {
       user.reason = u.reason;
       user.reasons = u.reasons;
       user.busy = u.busy;
+      user.rateByDay = u.rateByDay;
+      user.rate = u.rate;
     }
     User.update({id: req.query.user_id}, user).exec(function (err, updated) {
       sails.controllers.pending.checkMessages(req, res, next);
