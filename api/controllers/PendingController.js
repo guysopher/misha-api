@@ -12,7 +12,11 @@ module.exports = {
 
     Pending.find(req.body).exec(function(err,pending){
       if (pending.length == 0) {
-        Pending.create(req.body).exec(function(){});
+        Pending.create(req.body).exec(function(){
+          res.send({});
+        });
+      } else {
+        res.send({});
       }
     });
 
