@@ -45,6 +45,7 @@ module.exports = {
           res.send({
             notify: true,
             user: user.name,
+            photo: user.photo_url.replace('thumb_small', 'original'),
             message: p.message
             //pending: p.id
           });
