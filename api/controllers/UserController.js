@@ -30,7 +30,7 @@ module.exports = {
     }, {
       to: (req.body && req.body.to) || (req.query && req.query.to),
       from: (req.body && req.body.from) || (req.query && req.query.from),
-      subject: 'misha.m'
+      subject: 'Hi, I was looking for you'
     }, function(err, data) {
       res.send({err:err, data:data});
       console.log('email sent?', err, data);
