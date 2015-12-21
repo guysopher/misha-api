@@ -28,8 +28,8 @@ module.exports = {
     sails.hooks.email.send('', {
       name: (req.body && req.body.name) || (req.query && req.query.name)
     }, {
-      to: (req.body && req.body.email) || (req.query && req.query.email),
-      from: 'misha@wix.com',
+      to: (req.body && req.body.to) || (req.query && req.query.to),
+      from: (req.body && req.body.from) || (req.query && req.query.from),
       subject: 'misha.m'
     }, function(err, data) {
       res.send({err:err, data:data});
