@@ -7,6 +7,17 @@
 
 module.exports = {
 
+  create: function(req, res) {
+    console.log('new pending!', req.query);
+
+    Pending.find(req.body).exec(function(err,pending){
+      if (pending.length == 0) {
+        Pending.create(req.body).exec(function(){});
+      }
+    });
+
+  },
+
   checkMessages: function(req, res, next) {
     //check if the user has pending messages
     Pending.find({user_id: req.query.user_id}).populate('waiting_for').exec(function (err, pending) {
